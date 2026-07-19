@@ -1,0 +1,18 @@
+[Unit]
+Description=Bluetooth Audio Sink + Spotify Connect (AirPods-Studio)
+After=network.target bluetooth.service
+Requires=bluetooth.service
+
+[Service]
+Type=simple
+ExecStart=/root/airpods-studio.sh
+Restart=on-failure
+RestartSec=5
+User=root
+Environment=PULSE_RUNTIME_PATH=/var/run/pulse
+StandardInput=null
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
