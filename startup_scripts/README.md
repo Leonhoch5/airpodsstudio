@@ -5,10 +5,10 @@ Runs automatically at boot.
 
 ## Quick install
 
-1. **Save the script**  
-   Put `airpods-studio.sh` in `/root/airpods-studio.sh` and make it executable:
+1. **Install the script in a stable system path**  
+   Copy it somewhere that will still exist after boot, for example `/usr/local/bin/airpods-studio.sh`, and make it executable:
    ```bash
-   sudo chmod +x /root/airpods-studio.sh
+   sudo install -m 755 /path/to/airpods-studio.sh /usr/local/bin/airpods-studio.sh
    ```
 
 2. **Create systemd service**  
@@ -21,11 +21,11 @@ Runs automatically at boot.
 
    [Service]
    Type=simple
-   ExecStart=/root/airpods-studio.sh
+   ExecStart=/usr/local/bin/airpods-studio.sh
    Restart=on-failure
    RestartSec=5
    User=root
-   Environment=PULSE_RUNTIME_PATH=/var/run/pulse
+   Environment=PULSE_RUNTIME_PATH=/run/pulse
 
    [Install]
    WantedBy=multi-user.target

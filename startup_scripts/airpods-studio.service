@@ -5,11 +5,11 @@ Requires=bluetooth.service
 
 [Service]
 Type=simple
-ExecStart=/root/airpods-studio.sh
+ExecStart=/home/pod/airpodsstudio/startup_scripts/airpods-studio.sh
 Restart=on-failure
 RestartSec=5
 User=root
-Environment=PULSE_RUNTIME_PATH=/var/run/pulse
+Environment=PULSE_RUNTIME_PATH=/run/pulse
 StandardInput=null
 StandardOutput=journal
 StandardError=journal
